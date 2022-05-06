@@ -1,0 +1,548 @@
+.container {
+  position: relative;
+  width: 800px;
+
+  height: 700px;
+  background-color: rgb(0, 0, 92);
+  margin: auto;
+}
+
+.title {
+  position: relative;
+  top: 50px;
+  background-color: rgb(151, 151, 0);
+  height: 50px;
+  width: 680px;
+  left: 5%;
+  font-size: 40px;
+  text-align: center;
+  color: rgb(0, 0, 138);
+}
+
+.title:hover {
+  color: rgb(3, 3, 190);
+}
+
+.text-area {
+  position: relative;
+  background-color: white;
+  top: 100px;
+  left: 5%;
+  width: 680px;
+  height: 200px;
+  font-size: 15px;
+  color: rgb(3, 3, 190);
+}
+
+.keyboard-container {
+  position: relative;
+  background-color: gray;
+  height: 250px;
+  top: 100px;
+  width: 690px;
+  left: 5%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+  row-gap: 5px;
+  flex-wrap: wrap;
+}
+
+.key-yo {
+  margin-left: 5px;
+  margin-top: 5px;
+  background-color: rgb(88, 88, 88);
+  line-height: 35px;
+  height: 40px;
+  width: 40px;
+}
+
+.btn {
+  border-radius: 5px;
+  text-align: center;
+  font-size: 30px;
+  cursor: pointer;
+  font-size: 15px;
+  color: white;
+}
+.btn-active {
+  background-color: rgb(5, 84, 255);
+  border-radius: 50%;
+}
+
+.btn:hover {
+  background-color: rgb(5, 84, 255);
+}
+
+.key1 {
+  background-color: rgb(88, 88, 88);
+  margin-top: 5px;
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.key2 {
+  background-color: rgb(88, 88, 88);
+  margin-top: 5px;
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.key3 {
+  background-color: rgb(88, 88, 88);
+  margin-top: 5px;
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.key4 {
+  background-color: rgb(88, 88, 88);
+  margin-top: 5px;
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.key5 {
+  background-color: rgb(88, 88, 88);
+  margin-top: 5px;
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.key6 {
+  background-color: rgb(88, 88, 88);
+  margin-top: 5px;
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.key7 {
+  background-color: rgb(88, 88, 88);
+  margin-top: 5px;
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.key8 {
+  background-color: rgb(88, 88, 88);
+  margin-top: 5px;
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.key9 {
+  background-color: rgb(88, 88, 88);
+  margin-top: 5px;
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.key0 {
+  background-color: rgb(88, 88, 88);
+  margin-top: 5px;
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.key-minus {
+  background-color: rgb(88, 88, 88);
+  margin-top: 5px;
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.key-equal {
+  background-color: rgb(88, 88, 88);
+  margin-top: 5px;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+}
+
+.backspace {
+  background-color: rgb(51, 51, 51);
+  margin-top: 5px;
+  height: 40px;
+  width: 95px;
+  line-height: 40px;
+}
+
+.tab {
+  margin-left: 5px;
+
+  background-color: rgb(51, 51, 51);
+  height: 40px;
+  width: 50px;
+  line-height: 40px;
+}
+
+.keyQ {
+  background-color: rgb(88, 88, 88);
+
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyW {
+  background-color: rgb(88, 88, 88);
+
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyE {
+  background-color: rgb(88, 88, 88);
+
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyR {
+  background-color: rgb(88, 88, 88);
+
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyT {
+  background-color: rgb(88, 88, 88);
+
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyY {
+  background-color: rgb(88, 88, 88);
+
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyU {
+  background-color: rgb(88, 88, 88);
+
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyI {
+  background-color: rgb(88, 88, 88);
+
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyO {
+  background-color: rgb(88, 88, 88);
+
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyP {
+  background-color: rgb(88, 88, 88);
+
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.key-left-bracket {
+  background-color: rgb(88, 88, 88);
+
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.key-right-bracket {
+  background-color: rgb(88, 88, 88);
+
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.slash {
+  background-color: rgb(88, 88, 88);
+
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+}
+
+.del {
+  background-color: rgb(51, 51, 51);
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+}
+
+.caps {
+  margin-left: 5px;
+
+  background-color: rgb(51, 51, 51);
+  height: 40px;
+  width: 95px;
+  line-height: 40px;
+}
+
+.keyA {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyS {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyD {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyF {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyG {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyH {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyJ {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyK {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyL {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.semicolon {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.quotation {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.enter {
+  background-color: rgb(51, 51, 51);
+  height: 40px;
+  width: 85px;
+  line-height: 40px;
+}
+
+.shift-left {
+  margin-left: 5px;
+  background-color: rgb(51, 51, 51);
+  height: 40px;
+  width: 95px;
+  line-height: 40px;
+}
+
+.keyZ {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyX {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyC {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyV {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyB {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyN {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.keyM {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.comma {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.dot {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.slash-right {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+}
+
+.up {
+  background-color: rgb(51, 51, 51);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.shift-right {
+  background-color: rgb(51, 51, 51);
+  height: 40px;
+  width: 85px;
+  line-height: 40px;
+}
+
+.ctrl-left {
+  background-color: rgb(51, 51, 51);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+  margin-left: 5px;
+}
+
+.win {
+  background-color: rgb(51, 51, 51);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.alt-left {
+  background-color: rgb(51, 51, 51);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.space {
+  background-color: rgb(88, 88, 88);
+  height: 40px;
+  width: 320px;
+  line-height: 35px;
+}
+
+.alt-right {
+  background-color: rgb(51, 51, 51);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.left {
+  background-color: rgb(51, 51, 51);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.down {
+  background-color: rgb(51, 51, 51);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.right {
+  background-color: rgb(51, 51, 51);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
+
+.ctrl-right {
+  background-color: rgb(51, 51, 51);
+  height: 40px;
+  width: 40px;
+  line-height: 35px;
+}
