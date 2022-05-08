@@ -65,12 +65,12 @@
   font-size: 15px;
   color: white;
 }
-.btn-active {
-  background-color: rgb(5, 84, 255);
-  border-radius: 50%;
-}
 
 .btn:hover {
+  background-color: rgb(5, 84, 255);
+}
+
+.btn-show {
   background-color: rgb(5, 84, 255);
 }
 
@@ -545,4 +545,9 @@
   height: 40px;
   width: 40px;
   line-height: 35px;
+}
+.active {
+  color: rgb(151, 151, 0);
+  background-color: rgb(5, 84, 255);
+  border-radius: 50%;
 }
