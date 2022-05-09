@@ -893,7 +893,7 @@ window.addEventListener("keyup", function (e) {
     enter.classList.remove("active");
   } else {
     document
-      .querySelector(' .key[data="' + event.code + '"]')
+      .querySelector(' .key[data="' + e.code + '"]')
       .classList.remove("active");
   }
 });
@@ -1099,7 +1099,18 @@ let ruKeyboardUp = [
   ",",
 ];
 
-let isEn = true;
+let isEn = localStorage.getItem("language");
+let reload = () => {
+  if (JSON.stringify(localStorage.getItem("language")) == false) {
+    isEn = false;
+  } else {
+    isEn = true;
+  }
+};
+reload();
+
+console.log(JSON.stringify(localStorage.getItem("language")));
+
 let leftShiftFlag = false;
 let ctrlFlag = false;
 
@@ -1138,6 +1149,8 @@ const upperCase = () => {
   }
 };
 
+upperCase();
+
 const omg = () => {
   document.onkeydown = function (e) {
     if (e.code == "ControlLeft") {
@@ -1163,11 +1176,63 @@ window.addEventListener("keydown", function (e) {
     isEn = false;
     ctrlFlag = false;
 
-    upperCase();
-  } else if (e.code == "AltLeft" && isEn == false) {
+    localStorage.setItem("language", isEn);
+    console.log(JSON.stringify(localStorage.getItem("language")));
+  } else if (e.code == "AltLeft" && isEn == false && ctrlFlag) {
     isEn = true;
     ctrlFlag = true;
 
-    upperCase();
+    localStorage.setItem("language", isEn);
+    console.log(JSON.stringify(localStorage.getItem("language")));
+  }
+  upperCase();
+});
+
+///textarea by click mouse
+
+let textAreaLate = document.querySelector(".text-area").textContent;
+let allKeys = document.querySelectorAll(".key");
+let tabLate = document.querySelector(".tab");
+let backspaceLate = document.querySelector(".backspace");
+//keys add by click
+const addByclick = (e) => {
+  document.querySelector(".text-area").textContent += e.target.textContent;
+};
+
+allKeys.forEach((element) => element.addEventListener("mousedown", addByclick));
+
+window.addEventListener("keydown", function (e) {
+  if (e.key.length < 2) {
+    document.querySelector(".text-area").textContent += e.key;
+  }
+});
+
+//tab add by click
+const tabByclick = () => {
+  document.querySelector(".text-area").textContent += "  ";
+};
+
+tabLate.addEventListener("mousedown", tabByclick);
+
+window.addEventListener("keydown", function (e) {
+  if (e.key == "Tab") {
+    document.querySelector(".text-area").textContent += "  ";
+  }
+});
+
+//backspace by click
+const backByclick = () => {
+  document.querySelector(".text-area").textContent = document
+    .querySelector(".text-area")
+    .textContent.slice(0, -1);
+};
+
+backspaceLate.addEventListener("mousedown", backByclick);
+
+window.addEventListener("keydown", function (e) {
+  if (e.key == "Backspace") {
+    document.querySelector(".text-area").textContent = document
+      .querySelector(".text-area")
+      .textContent.slice(0, -1);
   }
 });
