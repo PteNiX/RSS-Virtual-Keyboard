@@ -23,6 +23,16 @@
   color: rgb(3, 3, 190);
 }
 
+.note-win {
+  position: relative;
+  text-align: center;
+  top: 110px;
+  left: 5%;
+  width: 680px;
+  height: 200px;
+  font-size: 30px;
+  color: rgb(151, 151, 0);
+}
 .text-area {
   position: relative;
   background-color: white;

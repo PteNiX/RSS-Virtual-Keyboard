@@ -17,6 +17,11 @@ keyboardContainer.classList.add("keyboard-container");
 container.append(keyboardContainer);
 keyboardContainer.id = "keyboard-container";
 
+let noteWin = document.createElement("div");
+noteWin.classList.add("note-win");
+container.append(noteWin);
+noteWin.append("To switch language press:ctrl+alt");
+
 //keys
 
 //`
@@ -695,36 +700,37 @@ for (let i = 0; i < keyboardLetterIn.length; i++) {
 /* for (let i = 0; i < KeyBoardOthers.length; i++) {
   KeyBoardOthers[i].setAttribute("data", `${keyboardNoLetter[i]}`);
 } */
+const colorBtnKeyboard = () => {
+  document.onkeydown = function (event) {
+    document
+      .querySelectorAll("#keyboard-container .btn")
+      .forEach(function (element) {
+        element.classList.remove("active");
+      });
 
-document.onkeydown = function (event) {
+    document
+      .querySelector('#keyboard-container .btn[data="' + event.code + '"]')
+      .classList.add("active");
+  };
+
+  document.onkeyup = function (event) {
+    document
+      .querySelector('#keyboard-container .btn[data="' + event.code + '"]')
+      .classList.remove("active");
+  };
+
   document
     .querySelectorAll("#keyboard-container .btn")
     .forEach(function (element) {
-      element.classList.remove("active");
+      element.onclick = function (event) {
+        document
+          .querySelectorAll("#keyboard-container .btn")
+          .forEach(function (element) {
+            element.classList.remove("active");
+          });
+      };
     });
-
-  document
-    .querySelector('#keyboard-container .btn[data="' + event.code + '"]')
-    .classList.add("active");
 };
-
-document.onkeyup = function (event) {
-  document
-    .querySelector('#keyboard-container .btn[data="' + event.code + '"]')
-    .classList.remove("active");
-};
-
-document
-  .querySelectorAll("#keyboard-container .btn")
-  .forEach(function (element) {
-    element.onclick = function (event) {
-      document
-        .querySelectorAll("#keyboard-container .btn")
-        .forEach(function (element) {
-          element.classList.remove("active");
-        });
-    };
-  });
 
 //click animation
 const buttons = document.querySelectorAll(".btn");
@@ -902,3 +908,144 @@ window.addEventListener("keyup", function (e) {
     enter.classList.remove("active");
   }
 });
+
+//change language
+let ruKeyboard = [
+  "ё",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "0",
+  "-",
+  "=",
+  "й",
+  "ц",
+  "у",
+  "к",
+  "е",
+  "н",
+  "г",
+  "ш",
+  "щ",
+  "з",
+  "х",
+  "ъ",
+  "\\",
+  "ф",
+  "ы",
+  "в",
+  "а",
+  "п",
+  "р",
+  "о",
+  "л",
+  "д",
+  "ж",
+  "э",
+  "я",
+  "ч",
+  "с",
+  "м",
+  "и",
+  "т",
+  "ь",
+  "б",
+  "ю",
+  ".",
+];
+
+let enKeyboard = [
+  "`",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "0",
+  "-",
+  "=",
+  "q",
+  "w",
+  "e",
+  "r",
+  "t",
+  "y",
+  "u",
+  "i",
+  "o",
+  "p",
+  "[",
+  "]",
+  "\\",
+  "a",
+  "s",
+  "d",
+  "f",
+  "g",
+  "h",
+  "j",
+  "k",
+  "l",
+  ";",
+  "'",
+  "z",
+  "x",
+  "c",
+  "v",
+  "b",
+  "n",
+  "m",
+  ",",
+  ".",
+  "/",
+];
+
+let isEn = true;
+
+const changeLanguage = () => {
+  if (!isEn) {
+    for (let k = 0; k < ruKeyboard.length; k++) {
+      document.querySelectorAll(".key")[k].textContent = ruKeyboard[k];
+    }
+  }
+
+  if (isEn) {
+    for (let k = 0; k < enKeyboard.length; k++) {
+      document.querySelectorAll(".key")[k].textContent = enKeyboard[k];
+    }
+  }
+};
+changeLanguage();
+
+let ctrlFlag = false;
+document.onkeydown = function (e) {
+  if (e.code == "ControlLeft") ctrlFlag = true;
+};
+
+window.addEventListener("keydown", function (e) {
+  if (e.code == "AltLeft" && isEn == true && ctrlFlag) {
+    isEn = false;
+    ctrlFlag = false;
+    changeLanguage();
+    colorBtnKeyboard();
+  } else if (e.code == "AltLeft" && isEn == false) {
+    isEn = true;
+    ctrlFlag = true;
+    changeLanguage();
+    colorBtnKeyboard();
+  }
+});
+
+document.onkeypress = function (e) {
+  enKeyboard.push(event.key);
+};
