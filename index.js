@@ -20,7 +20,7 @@ keyboardContainer.id = "keyboard-container";
 let noteWin = document.createElement("div");
 noteWin.classList.add("note-win");
 container.append(noteWin);
-noteWin.append("To switch language press:ctrl+alt");
+noteWin.append("To switch language press:left ctrl + left alt");
 
 //keys
 
@@ -697,40 +697,21 @@ for (let i = 0; i < keyboardLetterIn.length; i++) {
   keyboardLetterIn[i].setAttribute("data", `${keyboardLetter[i]}`);
 }
 
-/* for (let i = 0; i < KeyBoardOthers.length; i++) {
-  KeyBoardOthers[i].setAttribute("data", `${keyboardNoLetter[i]}`);
-} */
-const colorBtnKeyboard = () => {
+/* const colorBtnKeyboard = () => {
   document.onkeydown = function (event) {
     document
-      .querySelectorAll("#keyboard-container .btn")
-      .forEach(function (element) {
-        element.classList.remove("active");
-      });
-
-    document
-      .querySelector('#keyboard-container .btn[data="' + event.code + '"]')
+      .querySelector(' .key[data="' + event.code + '"]')
       .classList.add("active");
   };
 
   document.onkeyup = function (event) {
     document
-      .querySelector('#keyboard-container .btn[data="' + event.code + '"]')
+      .querySelector(' .key[data="' + event.code + '"]')
       .classList.remove("active");
   };
-
-  document
-    .querySelectorAll("#keyboard-container .btn")
-    .forEach(function (element) {
-      element.onclick = function (event) {
-        document
-          .querySelectorAll("#keyboard-container .btn")
-          .forEach(function (element) {
-            element.classList.remove("active");
-          });
-      };
-    });
 };
+
+colorBtnKeyboard(); */
 
 //click animation
 const buttons = document.querySelectorAll(".btn");
@@ -840,6 +821,10 @@ window.addEventListener("keydown", function (e) {
 
   if (e.code == "Enter") {
     enter.classList.add("active");
+  } else {
+    document
+      .querySelector(' .key[data="' + e.code + '"]')
+      .classList.add("active");
   }
 });
 
@@ -906,6 +891,10 @@ window.addEventListener("keyup", function (e) {
   }
   if (e.code == "Enter") {
     enter.classList.remove("active");
+  } else {
+    document
+      .querySelector(' .key[data="' + event.code + '"]')
+      .classList.remove("active");
   }
 });
 
@@ -1010,9 +999,111 @@ let enKeyboard = [
   "/",
 ];
 
-let isEn = true;
+let enKeyboardUp = [
+  "~",
+  "!",
+  "@",
+  "#",
+  "$",
+  "%",
+  "^",
+  "&",
+  "*",
+  "(",
+  ")",
+  "_",
+  "+",
+  "Q",
+  "W",
+  "E",
+  "R",
+  "T",
+  "Y",
+  "U",
+  "I",
+  "O",
+  "P",
+  "{",
+  "}",
+  "|",
+  "A",
+  "S",
+  "D",
+  "F",
+  "G",
+  "H",
+  "J",
+  "K",
+  "L",
+  ":",
+  '"',
+  "Z",
+  "X",
+  "C",
+  "V",
+  "B",
+  "N",
+  "M",
+  "<",
+  ">",
+  "?",
+];
 
-const changeLanguage = () => {
+let ruKeyboardUp = [
+  "Ё",
+  "!",
+  '"',
+  "№",
+  ";",
+  "%",
+  ":",
+  "?",
+  "*",
+  "(",
+  ")",
+  "_",
+  "+",
+  "Й",
+  "Ц",
+  "У",
+  "К",
+  "Е",
+  "Н",
+  "Г",
+  "Ш",
+  "Щ",
+  "З",
+  "Х",
+  "Ъ",
+  "/",
+  "Ф",
+  "Ы",
+  "В",
+  "А",
+  "П",
+  "Р",
+  "О",
+  "Л",
+  "Д",
+  "Ж",
+  "Э",
+  "Я",
+  "Ч",
+  "С",
+  "М",
+  "И",
+  "Т",
+  "Ь",
+  "Б",
+  "Ю",
+  ",",
+];
+
+let isEn = true;
+let leftShiftFlag = false;
+let ctrlFlag = false;
+
+/* const changeLanguage = () => {
   if (!isEn) {
     for (let k = 0; k < ruKeyboard.length; k++) {
       document.querySelectorAll(".key")[k].textContent = ruKeyboard[k];
@@ -1025,27 +1116,58 @@ const changeLanguage = () => {
     }
   }
 };
-changeLanguage();
+changeLanguage(); */
 
-let ctrlFlag = false;
-document.onkeydown = function (e) {
-  if (e.code == "ControlLeft") ctrlFlag = true;
+const upperCase = () => {
+  if (!isEn && leftShiftFlag) {
+    for (let k = 0; k < ruKeyboardUp.length; k++) {
+      document.querySelectorAll(".key")[k].textContent = ruKeyboardUp[k];
+    }
+  } else if (isEn && leftShiftFlag) {
+    for (let k = 0; k < enKeyboardUp.length; k++) {
+      document.querySelectorAll(".key")[k].textContent = enKeyboardUp[k];
+    }
+  } else if (isEn && !leftShiftFlag) {
+    for (let k = 0; k < enKeyboard.length; k++) {
+      document.querySelectorAll(".key")[k].textContent = enKeyboard[k];
+    }
+  } else if (!isEn && !leftShiftFlag) {
+    for (let k = 0; k < ruKeyboard.length; k++) {
+      document.querySelectorAll(".key")[k].textContent = ruKeyboard[k];
+    }
+  }
 };
+
+const omg = () => {
+  document.onkeydown = function (e) {
+    if (e.code == "ControlLeft") {
+      ctrlFlag = true;
+    } else if (e.code == "ShiftLeft" || e.code == "ShiftRight") {
+      leftShiftFlag = true;
+      upperCase();
+    }
+  };
+
+  document.onkeyup = function (e) {
+    if (e.code == "ShiftLeft" || e.code == "ShiftRight") {
+      leftShiftFlag = false;
+      upperCase();
+    }
+  };
+};
+
+omg();
 
 window.addEventListener("keydown", function (e) {
   if (e.code == "AltLeft" && isEn == true && ctrlFlag) {
     isEn = false;
     ctrlFlag = false;
-    changeLanguage();
-    colorBtnKeyboard();
+
+    upperCase();
   } else if (e.code == "AltLeft" && isEn == false) {
     isEn = true;
     ctrlFlag = true;
-    changeLanguage();
-    colorBtnKeyboard();
+
+    upperCase();
   }
 });
-
-document.onkeypress = function (e) {
-  enKeyboard.push(event.key);
-};
